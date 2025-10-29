@@ -4,29 +4,92 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+void move_bishop_function(int move)
+{
+    for (int i = 0; i < move; i++)
+    {
+        printf("Cima\nDireta\n");
+    }
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void move_rook_function(int move)
+{
+    int i = 0;
+    while (i < move)
+    {
+        printf("Direita\n");
+        i++;
+    }
+}
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+void move_queen_function(int move)
+{
+    int i = 0;
+    do
+    {
+        printf("Esquerda\n");
+        i++;
+    } while (i < move);
+}
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+void move_knight_function(int move)
+{
+    int i_2 = 0;
+    for (int i = 0; i < move; i++)
+    {
+        while (i_2 <= 1)
+        {
+            printf("Cima\n");
+            i_2++;
+        }
+        printf("Esquerda\n");
+    }
+}
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+int main()
+{
+    const int move_bishop = 5;
+    const int move_rook = 5;
+    const int move_queen = 8;
+    const int move_knight = 1;
+    int choose;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
+    do
+    {
+        printf("Escolha uma das peças:\n");
+        printf("1 - Bispo\n");
+        printf("2 - Torre\n");
+        printf("3 - Rainha\n");
+        printf("4 - Cavalo\n");
+        printf("0 - Sair\n");
+        printf("\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &choose);
+        switch (choose)
+        {
+        case 1:
+            printf("\nMovimentação do Bispo selecionada:\n");
+            move_bishop_function(move_bishop);
+            break;
+        case 2:
+            printf("\nMovimentação da Torre selecionada:\n");
+            move_rook_function(move_rook);
+            break;
+        case 3:
+            printf("\nMovimentação da Rainha selecionada:\n");
+            move_queen_function(move_queen);
+            break;
+        case 4:
+            printf("\nMovimentação do Cavalo selecionada:\n");
+            move_knight_function(move_knight);
+            break;
+        case 0:
+            printf("\nSaindo do programa.");
+            break;
+        default:
+            printf("Opção inválida. Tente novamente.\n");
+        }
+        printf("\n\n");
+    } while (choose != 0);
     return 0;
 }
